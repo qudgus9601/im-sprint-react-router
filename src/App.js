@@ -2,15 +2,15 @@ import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
 import "./App.css";
 
 const Home = () => {
-  return <div className="body__title">Home</div>;
+  return "Home";
 };
 
 const MyPage = () => {
-  return <div className="body__title">Mypage</div>;
+  return "Mypage";
 };
 
 const DashBoard = () => {
-  return <div className="body__title">Dashboard</div>;
+  return "Dashboard";
 };
 
 function App() {
@@ -31,18 +31,20 @@ function App() {
           </ul>
         </nav>
         <hr />
+        <div className="body__title">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/mypage">
+              <MyPage />
+            </Route>
+            <Route path="/dashboard">
+              <DashBoard />
+            </Route>
+          </Switch>
+        </div>
       </div>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/mypage">
-          <MyPage />
-        </Route>
-        <Route path="/dashboard">
-          <DashBoard />
-        </Route>
-      </Switch>
     </BrowserRouter>
   );
 }
